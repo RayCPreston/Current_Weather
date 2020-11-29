@@ -14,10 +14,22 @@ url = "http://api.openweathermap.org/data/2.5/weather?q=houston&appid=11993438e7
 response = requests.get(url)
 response.raise_for_status()
 
-weather = json.loads(response.text)
+weatherData = json.loads(response.text)
+print(weatherData)
 
-print("Current weather in houston")
+weather = weatherData["weather"]
+print(weather)
+print(weather[0]["main"])
 
-wList = weather["list"]
 
-print(wList[0]["weather"][0]["main"], '-', wList[0]['weather'][0]['description'])
+'''
+print("Current weather in houston", end = " ")
+
+#print(weather)
+
+weatherMain = weather["weather"][0]
+
+print(weatherMain)
+'''
+
+
